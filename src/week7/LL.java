@@ -1,4 +1,4 @@
-package week7.L;
+package week7;
 
 public class LL<E> {
 
@@ -161,7 +161,7 @@ public class LL<E> {
     }
 
     public E getMiddle() {
-        return get((int) size / 2);
+        return get(size / 2);
     }
 
     public E getLast() {
@@ -252,7 +252,7 @@ public class LL<E> {
 
         Node<E> next = head;
         tail = head;
-        Node<E> previous = null, current = null;
+        Node<E> previous = null, current;
 
         while (next != null) {
             current = next;
