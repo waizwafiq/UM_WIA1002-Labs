@@ -97,6 +97,14 @@ public class BST<E extends Comparable<E>> {
         return current.element;
     }
 
+    public boolean clear() {
+        if (isEmpty())
+            return false;
+
+        root = root.right = root.left = null;
+        return true;
+    }
+
     public boolean isEmpty() {
         return root == null;
     }
