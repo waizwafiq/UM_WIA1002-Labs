@@ -7,6 +7,8 @@ public class Q1 {
         int[] t = new int[]{3, 2, 5, 1, 6};
         selectionSortSmallest(t);
         System.out.println(Arrays.toString(t));
+        selectionSortLargest(t);
+        System.out.println(Arrays.toString(t));
     }
 
     public static void selectionSortSmallest(int[] arr) {
