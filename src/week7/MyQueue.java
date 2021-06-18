@@ -1,4 +1,4 @@
-package week7.L;
+package week7;
 
 public class MyQueue<E> {
 
@@ -46,14 +46,14 @@ public class MyQueue<E> {
     }
 
     public String toString() {
-        String out = "| ";
+        StringBuilder out = new StringBuilder("| ");
         for (int i = getSize() - 1; i >= 0; i--)
-            out += list.get(i) + " | ";
-        return out;
+            out.append(list.get(i)).append(" | ");
+        return out.toString();
     }
 
     public void display() {
-        System.out.println(toString());
+        System.out.println(this);
     }
 
     public void set(int index, E e){
