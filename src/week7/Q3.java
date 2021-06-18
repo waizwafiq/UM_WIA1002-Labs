@@ -1,39 +1,39 @@
-package week7.L;
+package week7;
 
 /**
- * The capital gain/loss when 1 share of common stock of a company is sold:
- * Capital gain/loss = (Sell price) - (Buy price)
- * <p>
- * The capital gain/loss when multiple shares are sold:
- * - Use FIFO protocol (Queue)
- * -> The shares sold are the ones that have been held the longest.
- * <p>
- * Concept:
- * There are two queues, one holds the amount of shares bought
- * and the other one holds the 'buy' price of the day the shares were bought.
- * An example is given below, (+ve: buy; -ve: sell; ps: per share)
- * Day 1, +100, $20ps
- * Day 2,  +20, $24ps
- * Day 3, +200, $36ps
- * Day 4, -150, $30ps
- * <p>
- * Shares queue   :  -> | 200 | 20 | 100 | ->
- * Buy price queue:  -> |  36 | 24 |  20 | ->
- * <p>
- * When we're selling 150 shares for $30ps, (in shares queue) we'd dequeue/peek 100 shares from the first element,
- * 20 shares from the second element, and 30 shares from the last element (the element will become 200 - 30 = 170)
- * <p>
- * Then, we'll dequeue/peek the buy price queue for all the shares sold.
- * <p>
- * Using the formula for single share (the one at the top):
- * capital gain/loss = (100 * (30-20)) + (20 * (30-24)) + (30 * (30-36))
- * capital gain = $940
- * <p>
- * The queue will become:
- * Shares queue   :  -> | (200 - 30) | ->
- * Buy price queue:  -> |  36 | ->
- *
- * @author Waiz Wafiq
+  The capital gain/loss when 1 share of common stock of a company is sold:
+  Capital gain/loss = (Sell price) - (Buy price)
+  <p>
+  The capital gain/loss when multiple shares are sold:
+  - Use FIFO protocol (Queue)
+  -> The shares sold are the ones that have been held the longest.
+  <p>
+  Concept:
+  There are two queues, one holds the amount of shares bought
+  and the other one holds the 'buy' price of the day the shares were bought.
+  An example is given below, (+ve: buy; -ve: sell; ps: per share)
+  Day 1, +100, $20ps
+  Day 2,  +20, $24ps
+  Day 3, +200, $36ps
+  Day 4, -150, $30ps
+  <p>
+  Shares queue   :  -> | 200 | 20 | 100 | ->
+  Buy price queue:  -> |  36 | 24 |  20 | ->
+  <p>
+  When we're selling 150 shares for $30ps, (in shares queue) we'd dequeue/peek 100 shares from the first element,
+  20 shares from the second element, and 30 shares from the last element (the element will become 200 - 30 = 170)
+  <p>
+  Then, we'll dequeue/peek the buy price queue for all the shares sold.
+  <p>
+  Using the formula for single share (the one at the top):
+  capital gain/loss = (100 * (30-20)) + (20 * (30-24)) + (30 * (30-36))
+  capital gain = $940
+  <p>
+  The queue will become:
+  Shares queue   :  -> | (200 - 30) | ->
+  Buy price queue:  -> |  36 | ->
+
+  @author Waiz Wafiq
  */
 
 import java.util.InputMismatchException;
