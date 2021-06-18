@@ -129,6 +129,11 @@ public class BST<E extends Comparable<E>> {
     }
 
     private int height(TreeNode<E> node) {
+        /*
+        The height of a tree is the length of the path from the root to
+        the deepest node in the tree.
+        A (rooted) tree with only a node (the root) has a height of zero.
+         */
         if (node == null)
             return -1;
 
