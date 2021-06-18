@@ -98,7 +98,7 @@ public class BST<E extends Comparable<E>> {
     }
 
     public boolean clear() {
-        if (isEmpty())
+        if (root == null)
             return false;
 
         root = root.right = root.left = null;
@@ -122,6 +122,23 @@ public class BST<E extends Comparable<E>> {
 
     public TreeNode<E> getRoot() {
         return root;
+    }
+
+    public int height() {
+        return height(root);
+    }
+
+    private int height(TreeNode<E> node) {
+        if (node == null)
+            return -1;
+
+        int leftMost = height(node.left);
+        int rightMost = height(node.right);
+
+        if (leftMost > rightMost)
+            return leftMost + 1;
+        else
+            return rightMost + 1;
     }
 
     public E getElement(E e) {
