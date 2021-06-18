@@ -58,27 +58,26 @@ public class BST<E extends Comparable<E>> {
 
     private boolean found;
 
-    public boolean remove(E e) {
-        root = remove(root, e);
+    public boolean delete(E e) {
+        root = delete(root, e);
         return found;
     }
 
-    public TreeNode<E> remove(TreeNode<E> current, E e) {
+    public TreeNode<E> delete(TreeNode<E> current, E e) {
         if (current == null)
             found = false;
         else if (e.compareTo(current.element) < 0)
-            current.left = remove(current.left, e);
+            current.left = delete(current.left, e);
         else if (e.compareTo(current.element) > 0)
-            current.right = remove(current.right, e);
+            current.right = delete(current.right, e);
         else {
-            current = removeNode(current);
+            current = delete(current);
             found = true;
         }
-
         return current;
     }
 
-    private TreeNode<E> removeNode(TreeNode<E> node) {
+    private TreeNode<E> delete(TreeNode<E> node) {
         if (node.left == null)
             return node.right;
         else if (node.right == null)
@@ -86,7 +85,7 @@ public class BST<E extends Comparable<E>> {
         else {
             E e = getPredecessor(node.left);
             node.element = e;
-            node.left = remove(node.left, e);
+            node.left = delete(node.left, e);
             return node;
         }
     }
