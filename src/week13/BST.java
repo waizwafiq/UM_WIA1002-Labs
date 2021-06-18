@@ -22,23 +22,22 @@ public class BST<E extends Comparable<E>> {
         root.element = e;
     }
 
-    public void add(E e) {
-        root = add(root, e);
+    public void insert(E e) {
+        root = insert(root, e);
     }
 
-    public TreeNode<E> add(TreeNode<E> current, E e) {
+    public TreeNode<E> insert(TreeNode<E> current, E e) {
         if (current == null)
             current = new TreeNode<>(e);
         else if (e.compareTo(current.element) <= 0)
-            current.left = add(current.left, e);
+            current.left = insert(current.left, e);
         else
-            current.right = add(current.right, e);
+            current.right = insert(current.right, e);
 
         return current;
     }
 
     private boolean found;
-
     public boolean remove(E e) {
         root = remove(root, e);
         return found;
@@ -94,17 +93,17 @@ public class BST<E extends Comparable<E>> {
             return getSize(current.left) + getSize(current.right) + 1;
     }
 
-    public boolean contains(E e) {
-        return find(root, e);
+    public boolean search(E e) {
+        return search(root, e);
     }
 
-    public boolean find(TreeNode<E> current, E e) {
+    public boolean search(TreeNode<E> current, E e) {
         if (current == null)
             return false;
         else if (e.compareTo(current.element) < 0)
-            return find(current.left, e); // go to the left child
+            return search(current.left, e); // go to the left child
         else if (e.compareTo(current.element) > 0)
-            return find(current.right, e); // go to the right child
+            return search(current.right, e); // go to the right child
         else
             return true;
     }
