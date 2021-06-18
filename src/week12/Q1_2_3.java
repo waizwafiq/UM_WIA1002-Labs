@@ -2,7 +2,7 @@ package week12;
 
 import java.util.Arrays;
 
-public class Q1 {
+public class Q1_2_3 {
     public static void main(String[] args) {
         int[] t = new int[]{3, 2, 5, 1, 6};
         selectionSortSmallest(t);
