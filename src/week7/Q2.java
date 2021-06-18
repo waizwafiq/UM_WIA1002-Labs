@@ -1,9 +1,9 @@
-package week7.L;
+package week7;
 
 public class Q2 {
 
     public static boolean isPalindrome(String str) {
-        String reversed = "";
+        StringBuilder reversed = new StringBuilder();
 
         MyQueue<String> letters = new MyQueue<>();
         for (int i = 0; i < str.length(); i++) {
@@ -12,10 +12,10 @@ public class Q2 {
         letters.reverse();
 
         for (int i = 0; i < str.length(); i++) {
-            reversed += letters.getElement(i);
+            reversed.append(letters.getElement(i));
         }
 
-        return str.equals(reversed);
+        return str.equals(reversed.toString());
     }
 
     public static void main(String[] args) {
