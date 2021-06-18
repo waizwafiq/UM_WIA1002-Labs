@@ -11,13 +11,14 @@ public class Q4 {
 
     public static void insertionSort(int[] arr) {
         int n = arr.length;
-        for (int j = 1; j < n; j++) {
-            int key = arr[j], i = j - 1;
-            while ((i >= 0) && (arr[i] > key)) {
-                arr[i + 1] = arr[i];
-                i--;
+        for (int i = 1; i < n; i++) {
+            int key = arr[i], j = i - 1;
+
+            while ((j >= 0) && (arr[j] > key)) {
+                arr[j + 1] = arr[j];
+                j--;
             }
-            arr[i + 1] = key;
+            arr[j + 1] = key;
         }
     }
 }
