@@ -9,6 +9,10 @@ public class BST<E extends Comparable<E>> {
             this.element = element;
             left = right = null;
         }
+
+        public T getElement() {
+            return element;
+        }
     }
 
     private TreeNode<E> root;
@@ -107,6 +111,10 @@ public class BST<E extends Comparable<E>> {
             return 0;
         else
             return getSize(current.left) + getSize(current.right) + 1;
+    }
+
+    public TreeNode<E> getRoot() {
+        return root;
     }
 
     public E getElement(E e) {
