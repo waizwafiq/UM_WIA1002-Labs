@@ -124,6 +124,25 @@ public class BST<E extends Comparable<E>> {
         return root;
     }
 
+    public E minValue() {
+        return minValue(root);
+    }
+
+    public E minValue(TreeNode<E> node) {
+        if (node == null)
+            return null;
+
+        E current = node.element;
+        E leftMost = minValue(node.left);
+        E rightMost = minValue(node.right);
+
+        if (leftMost.compareTo(current) > 0)
+            current = leftMost;
+        if (rightMost.compareTo(current) > 0)
+            current = rightMost;
+        return current;
+    }
+
     public int height() {
         return height(root);
     }
