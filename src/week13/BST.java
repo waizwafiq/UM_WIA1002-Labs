@@ -1,5 +1,7 @@
 package week13;
 
+import java.util.ArrayList;
+
 public class BST<E extends Comparable<E>> {
     private static class TreeNode<T> {
         private TreeNode<T> left, right;
@@ -21,9 +23,9 @@ public class BST<E extends Comparable<E>> {
         root = null;
     }
 
-    public BST(E e) {
-        assert false;
-        root.element = e;
+    public BST(ArrayList<E> nodes) {
+        for (E node : nodes)
+            insert(node);
     }
 
     public boolean search(E e) {
