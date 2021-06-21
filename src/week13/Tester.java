@@ -16,6 +16,14 @@ public class Tester {
         System.out.print("PREORDER: ");
         bst.preOrder();
 
+        System.out.println("Height of BST: " + bst.height());
+        System.out.println("Root: " + bst.getRoot());
+        System.out.println("Check whether 10 is in the tree? " + bst.search(10));
+        System.out.println("Delete 53? " + bst.delete(53));
+        System.out.println("Updated inorder data: ");
+        bst.inOrder();
+        System.out.println("Min value: " + bst.minValue());
+        System.out.println("Max value: " + bst.maxValue());
     }
 
     public static String[] inputStr() {
@@ -25,7 +33,7 @@ public class Tester {
 
     public static ArrayList<Integer> inputInt() {
         ArrayList<Integer> out = new ArrayList<>();
-        for(String e: inputStr())
+        for (String e : inputStr())
             out.add(Integer.valueOf(e));
 
         return out;
