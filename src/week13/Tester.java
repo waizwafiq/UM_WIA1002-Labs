@@ -17,7 +17,7 @@ public class Tester {
         bst.preOrder();
 
         System.out.println("Height of BST: " + bst.height());
-        System.out.println("Root: " + bst.getRoot());
+        System.out.println("Root: " + bst.getRoot().getElement());
         System.out.println("Check whether 10 is in the tree? " + bst.search(10));
         System.out.println("Delete 53? " + bst.delete(53));
         System.out.println("Updated inorder data: ");
