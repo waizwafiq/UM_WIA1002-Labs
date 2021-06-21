@@ -1,22 +1,33 @@
 package week13;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.stream.Stream;
 
 public class Tester {
+    private static final Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) {
-        BST<Integer> bst = new BST<>();
-        bst.insert(15);
-        bst.insert(6);
-        bst.insert(4);
-        bst.insert(20);
-        bst.insert(14);
-        bst.insert(4);
-        bst.insert(5);
-        bst.insert(8);
-        bst.insert(11);
-        bst.insert(9);
+        BST<Integer> bst = new BST<>(inputInt());
+        System.out.print("INORDER: ");
         bst.inOrder();
-        bst.preOrder();
+        System.out.print("POSTORDER: ");
         bst.postOrder();
+        System.out.print("PREORDER: ");
+        bst.preOrder();
+
+    }
+
+    public static String[] inputStr() {
+        System.out.print("Insert elements here: ");
+        return sc.nextLine().replace(" ", "").split(",");
+    }
+
+    public static ArrayList<Integer> inputInt() {
+        ArrayList<Integer> out = new ArrayList<>();
+        for(String e: inputStr())
+            out.add(Integer.valueOf(e));
+
+        return out;
     }
 }
