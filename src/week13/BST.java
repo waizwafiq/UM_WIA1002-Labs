@@ -140,18 +140,15 @@ public class BST<E extends Comparable<E>> {
     }
 
     public E minValue(TreeNode<E> node) {
+        //the leftmost node in BST is the minimum
+
         if (node == null)
             return null;
 
-        E current = node.element;
-        E leftMost = minValue(node.left);
-        E rightMost = minValue(node.right);
+        while (node.left != null)
+            node = node.left;
 
-        if (leftMost.compareTo(current) > 0)
-            current = leftMost;
-        if (rightMost.compareTo(current) > 0)
-            current = rightMost;
-        return current;
+        return node.element;
     }
 
     public E maxValue() {
@@ -159,18 +156,15 @@ public class BST<E extends Comparable<E>> {
     }
 
     public E maxValue(TreeNode<E> node) {
+        //the rightmost node in BST is the maximum
+
         if (node == null)
             return null;
 
-        E current = node.element;
-        E leftMost = maxValue(node.left);
-        E rightMost = maxValue(node.right);
+        while (node.right != null)
+            node = node.right;
 
-        if (leftMost.compareTo(current) < 0)
-            current = leftMost;
-        if (rightMost.compareTo(current) < 0)
-            current = rightMost;
-        return current;
+        return node.element;
     }
 
     public int height() {
