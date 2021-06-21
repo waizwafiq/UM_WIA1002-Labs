@@ -3,7 +3,7 @@ package week13;
 import java.util.ArrayList;
 
 public class BST<E extends Comparable<E>> {
-    private static class TreeNode<T> {
+    public static class TreeNode<T> {
         private TreeNode<T> left, right;
         private T element;
 
