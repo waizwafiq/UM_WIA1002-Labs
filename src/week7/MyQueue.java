@@ -56,18 +56,22 @@ public class MyQueue<E> {
         System.out.println(this);
     }
 
-    public void set(int index, E e){
+    public void set(int index, E e) {
         list.set(index, e);
     }
 
     public void reverse() {
         list.reverse();
     }
+
+    public void clear() {
+        list.clear();
+    }
 }
 
 class Q1 {
     public static void main(String[] args) {
-        MyQueue<String> fruitQ = new MyQueue<>(new String[] {"Durian", "Blueberry"});
+        MyQueue<String> fruitQ = new MyQueue<>(new String[]{"Durian", "Blueberry"});
         fruitQ.enqueue("Apple");
         fruitQ.enqueue("Orange");
         fruitQ.enqueue("Grapes");
@@ -85,7 +89,7 @@ class Q1 {
         System.out.println("Is Cherry in the queue?: " + fruitQ.contains("Cherry"));
         System.out.println("Is Durian in the queue?: " + fruitQ.contains("Durian"));
 
-        if(!fruitQ.isEmpty())
+        if (!fruitQ.isEmpty())
             fruitQ.display();
         else
             System.out.println("Queue is empty!");
