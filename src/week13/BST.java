@@ -1,9 +1,6 @@
 package week13;
 
 import java.util.ArrayList;
-import java.util.Queue;
-
-import week7.MyQueue;
 
 public class BST<E extends Comparable<E>> {
     private static class TreeNode<T> {
@@ -21,15 +18,21 @@ public class BST<E extends Comparable<E>> {
     }
 
     private TreeNode<E> root;
-    private MyQueue<E> Q;
+    private ArrayList<E> visited;
 
     public BST() {
         root = null;
-        Q = new MyQueue<>();
+        visited = new ArrayList<>();
+    }
+
+    public BST(E[] nodes) {
+        visited = new ArrayList<>();
+        for (E node : nodes)
+            insert(node);
     }
 
     public BST(ArrayList<E> nodes) {
-        Q = new MyQueue<>();
+        visited = new ArrayList<>();
         for (E node : nodes)
             insert(node);
     }
@@ -56,7 +59,7 @@ public class BST<E extends Comparable<E>> {
     public TreeNode<E> insert(TreeNode<E> current, E e) {
         if (current == null)
             current = new TreeNode<>(e);
-        else if (e.compareTo(current.element) <= 0)
+        else if (e.compareTo(current.element) < 0)
             current.left = insert(current.left, e);
         else
             current.right = insert(current.right, e);
@@ -208,48 +211,48 @@ public class BST<E extends Comparable<E>> {
     }
 
     public void inOrder() {
-        Q.clear();
+        visited.clear();
         inOrder(root);
-        Q.reverse();
-        Q.display();
+        System.out.println(visited.toString());
     }
 
     public void inOrder(TreeNode<E> a) {
-        if (a != null) {
-            inOrder(a.left);
-            Q.enqueue(a.element);
-            inOrder(a.right);
-        }
+        if (a == null)
+            return;
+
+        inOrder(a.left);
+        visited.add(a.element);
+        inOrder(a.right);
     }
 
     public void preOrder() {
-        Q.clear();
+        visited.clear();
         preOrder(root);
-        Q.reverse();
-        Q.display();
+        System.out.println(visited.toString());
     }
 
     public void preOrder(TreeNode<E> a) {
-        if (a != null) {
-            Q.enqueue(a.element);
-            preOrder(a.left);
-            preOrder(a.right);
-        }
+        if (a == null)
+            return;
+
+        visited.add(a.element);
+        preOrder(a.left);
+        preOrder(a.right);
     }
 
     public void postOrder() {
-        Q.clear();
+        visited.clear();
         postOrder(root);
-        Q.reverse();
-        Q.display();
+        System.out.println(visited.toString());
     }
 
     public void postOrder(TreeNode<E> a) {
-        if (a != null) {
-            postOrder(a.left);
-            postOrder(a.right);
-            Q.enqueue(a.element);
-        }
+        if (a == null)
+            return;
+
+        postOrder(a.left);
+        postOrder(a.right);
+        visited.add(a.element);
     }
 
 }
