@@ -1,6 +1,9 @@
 package week13;
 
 import java.util.ArrayList;
+import java.util.Queue;
+
+import week7.MyQueue;
 
 public class BST<E extends Comparable<E>> {
     private static class TreeNode<T> {
@@ -18,12 +21,15 @@ public class BST<E extends Comparable<E>> {
     }
 
     private TreeNode<E> root;
+    private MyQueue<E> Q;
 
     public BST() {
         root = null;
+        Q = new MyQueue<>();
     }
 
     public BST(ArrayList<E> nodes) {
+        Q = new MyQueue<>();
         for (E node : nodes)
             insert(node);
     }
@@ -200,4 +206,50 @@ public class BST<E extends Comparable<E>> {
         else
             return current.element;
     }
+
+    public void inOrder() {
+        Q.clear();
+        inOrder(root);
+        Q.reverse();
+        Q.display();
+    }
+
+    public void inOrder(TreeNode<E> a) {
+        if (a != null) {
+            inOrder(a.left);
+            Q.enqueue(a.element);
+            inOrder(a.right);
+        }
+    }
+
+    public void preOrder() {
+        Q.clear();
+        preOrder(root);
+        Q.reverse();
+        Q.display();
+    }
+
+    public void preOrder(TreeNode<E> a) {
+        if (a != null) {
+            Q.enqueue(a.element);
+            preOrder(a.left);
+            preOrder(a.right);
+        }
+    }
+
+    public void postOrder() {
+        Q.clear();
+        postOrder(root);
+        Q.reverse();
+        Q.display();
+    }
+
+    public void postOrder(TreeNode<E> a) {
+        if (a != null) {
+            postOrder(a.left);
+            postOrder(a.right);
+            Q.enqueue(a.element);
+        }
+    }
+
 }
