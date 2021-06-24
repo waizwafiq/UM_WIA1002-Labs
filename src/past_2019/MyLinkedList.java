@@ -4,6 +4,14 @@ public class MyLinkedList<T> {
     private Node<T> head, tail;
     private int size;
 
+    public Node<T> getHead() {
+        return head;
+    }
+
+    public Node<T> getTail() {
+        return tail;
+    }
+
     public int getSize() {
         return size;
     }
