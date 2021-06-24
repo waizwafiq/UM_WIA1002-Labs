@@ -1,4 +1,4 @@
-package past_2019;
+package past_2019.Q1;
 
 public class Q1c {
     public static void main(String[] args) {
