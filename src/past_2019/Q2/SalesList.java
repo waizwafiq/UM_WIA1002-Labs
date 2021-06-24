@@ -3,12 +3,12 @@ package past_2019.Q2;
 public class SalesList {
     private String[] region; //region
     private String[] sales_repr_names; //sales representative name
-    private double[] sales_amnt; //sales amount
+    private int[] sales_amnt; //sales amount
 
     public SalesList() {
     }
 
-    public SalesList(String[] region, String[] sales_repr_names, double[] sales_amnt) {
+    public SalesList(String[] region, String[] sales_repr_names, int[] sales_amnt) {
         this.region = region;
         this.sales_repr_names = sales_repr_names;
         this.sales_amnt = sales_amnt;
@@ -22,7 +22,7 @@ public class SalesList {
         return sales_repr_names;
     }
 
-    public double[] getSales_amnt() {
+    public int[] getSales_amnt() {
         return sales_amnt;
     }
 
@@ -34,7 +34,7 @@ public class SalesList {
         this.sales_repr_names = sales_repr_names;
     }
 
-    public void setSales_amnt(double[] sales_amnt) {
+    public void setSales_amnt(int[] sales_amnt) {
         this.sales_amnt = sales_amnt;
     }
 }
