@@ -2,7 +2,6 @@ package week13;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.stream.Stream;
 
 public class Tester {
     private static final Scanner sc = new Scanner(System.in);
