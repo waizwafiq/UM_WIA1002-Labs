@@ -37,4 +37,14 @@ public class SalesList {
     public void setSales_amnt(int[] sales_amnt) {
         this.sales_amnt = sales_amnt;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder out = new StringBuilder();
+
+        for (int i = 0; i < region.length; i++)
+            out.append(region[i]).append(";\t").append(sales_amnt[i]).append(";\t").append(sales_repr_names[i]).append(";\n");
+
+        return out.toString();
+    }
 }
