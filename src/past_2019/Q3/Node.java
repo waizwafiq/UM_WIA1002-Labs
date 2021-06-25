@@ -12,10 +12,18 @@ public class Node {
         this.row = row;
         this.col = col;
         this.val = val;
-        visitable = val.equalsIgnoreCase("1");
         goal = val.equalsIgnoreCase("C");
+        visitable = val.equalsIgnoreCase("1") || goal;
 
         up = left = down = right = null;
+    }
+
+    public Node visit() {
+        if (isVisitable()) {
+            visitable = false;
+            return this;
+        }
+        return null;
     }
 
     /*GETTERS*/
@@ -65,10 +73,6 @@ public class Node {
         this.col = col;
     }
 
-    public void setVisitable(boolean visitable) {
-        this.visitable = visitable;
-    }
-
     public void setUp(Node up) {
         this.up = up;
     }
@@ -95,6 +99,6 @@ public class Node {
 
     @Override
     public String toString() {
-        return " "+val+" ";
+        return "("+row+", "+col+")"/*" " + val + " "*/;
     }
 }
