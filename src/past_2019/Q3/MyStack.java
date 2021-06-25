@@ -47,9 +47,9 @@ public class MyStack<T>{
     }
 
     public String toString() {
-        StringBuilder out = new StringBuilder("The Stack:\n");
+        StringBuilder out = new StringBuilder("The Path: ");
         for (Object e : list.toArray())
-            out.append(e).append("\n");
+            out.append(e).append(" -> ");
 
         return out.toString();
     }
