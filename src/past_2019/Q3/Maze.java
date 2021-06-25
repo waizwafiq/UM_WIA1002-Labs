@@ -1,5 +1,7 @@
 package past_2019.Q3;
 
+import java.util.ArrayList;
+
 public class Maze {
 
     private Node root;
@@ -32,6 +34,48 @@ public class Maze {
             upper_row = upper_row.getLeft(); //go left for the upper row of current's row
             current = current.getLeft();
         }
+    }
+
+    public String search() {
+        ArrayList<Node> path = new ArrayList<>();
+        MyStack<Node> stack = new MyStack<>();
+        stack.push(root); //start from root
+        root.visit();
+
+        Node current = root;
+        while (!current.isGoal() && !stack.isEmpty()) {
+            current = stack.pop();
+            path.add(current);
+
+            if (current.getLeft() != null) {
+                if (current.getLeft().isVisitable())
+                    stack.push(current.getLeft().visit());
+            }
+            if (current.getUp() != null) {
+                if (current.getUp().isVisitable())
+                    stack.push(current.getUp().visit());
+            }
+            if (current.getDown() != null) {
+                if (current.getDown().isVisitable())
+                    stack.push(current.getDown().visit());
+            }
+            if (current.getRight() != null) {
+                if (current.getRight().isVisitable())
+                    stack.push(current.getRight().visit());
+            }
+        }
+
+        StringBuilder out = new StringBuilder();
+        if(!stack.isEmpty()) {
+            out.append("Path: ");
+            for (int i = 0; i < path.size() - 1; i++)
+                out.append(path.get(i)).append(" >> ");
+            out.append(path.get(path.size() - 1)).append("\n");
+        }else{
+            out.append("No path found!");
+        }
+
+        return out.toString();
     }
 
     public Node getRoot() {
