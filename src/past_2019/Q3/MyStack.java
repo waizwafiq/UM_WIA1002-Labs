@@ -48,8 +48,8 @@ public class MyStack<T>{
 
     public String toString() {
         StringBuilder out = new StringBuilder("The Stack:\n");
-        for (Object elems : list.toArray())
-            out.append(elems).append("\n");
+        for (Object e : list.toArray())
+            out.append(e).append("\n");
 
         return out.toString();
     }
