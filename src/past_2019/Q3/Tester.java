@@ -2,6 +2,7 @@ package past_2019.Q3;
 
 import java.io.FileNotFoundException;
 import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Tester {
@@ -12,6 +13,7 @@ public class Tester {
     public static void main(String[] args) {
         readFile();
         System.out.println(maze);
+        System.out.println(maze.search());
     }
 
     public static void readFile() {
