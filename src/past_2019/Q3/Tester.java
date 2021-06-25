@@ -2,7 +2,6 @@ package past_2019.Q3;
 
 import java.io.FileNotFoundException;
 import java.io.FileInputStream;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Tester {

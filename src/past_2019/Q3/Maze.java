@@ -78,10 +78,6 @@ public class Maze {
         return out.toString();
     }
 
-    public Node getRoot() {
-        return root;
-    }
-
     @Override
     public String toString() {
         StringBuilder out = new StringBuilder();
